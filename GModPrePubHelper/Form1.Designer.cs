@@ -457,7 +457,7 @@
             this.Controls.Add(this.pnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GMPPH";
-            this.Text = "GMod Pre-Publishing Helper 0.2.5";
+            this.Text = "GMod Pre-Publishing Helper 0.2.7";
             this.pnlMain.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
