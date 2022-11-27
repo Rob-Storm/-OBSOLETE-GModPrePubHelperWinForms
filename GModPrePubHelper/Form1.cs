@@ -298,6 +298,14 @@ namespace GModPrePubHelper
             addonTags = checkedTags.ToArray();
         }
 
+
+        //Create Directories
+        private void btnCreateDirectories_Click(object sender, EventArgs e)
+        {
+            FolderSetup(folderPath, mapPath, thumbnailPath, mapName, gmadPath, usingThumbnail);
+        }
+
+
         //Actually Do The Stuff
         //
         //
@@ -305,6 +313,8 @@ namespace GModPrePubHelper
         
         public void FolderSetup(string rootDir, string mapDir, string thumbnailDir, string mapName, string gmadDir, bool usingThumbnail)
         {
+            //I DONT CARE IF ITS MESSY THE ENDS JUSTIFY THE MEANS GODDAMNNIT
+
             if(rootDir == null || mapDir == null || thumbnailDir == null && usingThumbnail || gmadPath == null || mapName == null)
             {
                 lblGeneralInfo.Text = "One or more Directories are invalid!";
@@ -395,13 +405,6 @@ namespace GModPrePubHelper
             var process = Process.Start(gmadPath, "create " + "-folder " + pathToFolder);
 
             process.WaitForExit();
-        }
-
-
-        //Create Directories
-        private void btnCreateDirectories_Click(object sender, EventArgs e)
-        {
-            FolderSetup(folderPath, mapPath, thumbnailPath, mapName, gmadPath, usingThumbnail);
         }
 
 
