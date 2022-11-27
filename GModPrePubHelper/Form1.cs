@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Drawing;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -31,7 +31,7 @@ namespace GModPrePubHelper
         public string mapName;
 
         //Optional Stuff
-        public bool usingCustomContent, usingThumbnail, usingName = false;
+        public bool usingCustomContent, usingThumbnail, imageValid, usingName = false;
 
         //JSON Shit
 
@@ -181,6 +181,11 @@ namespace GModPrePubHelper
         private void txtbxThumbnailPath_TextChanged(object sender, EventArgs e)
         {
             thumbnailPath = txtbxThumbnailPath.Text;
+
+            if(File.Exists(thumbnailPath))
+            {
+                IMGChecker(thumbnailPath);
+            }
         }
         private void btnThumbnailBrowse_Click(object sender, EventArgs e)
         {
@@ -194,10 +199,26 @@ namespace GModPrePubHelper
             {
                 thumbnailPath = openFileDialog3.FileName;
                 txtbxThumbnailPath.Text = thumbnailPath;
+                IMGChecker(thumbnailPath);
             }
         }
 
+        void IMGChecker(string imagePath)
+        {
+            var thumb = Image.FromFile(imagePath);
 
+            if(thumb.Width != 128 || thumb.Height != 128)
+            { 
+                imageValid= false;
+                lblImageWarning.Text = "Image resolution is not valid! Use 128x128!";
+            }
+
+            else 
+            { 
+                imageValid= true;
+                lblImageWarning.Text = "Image is valid!";
+            }
+        }
 
         //Map File
         private void txtbxMapPath_TextChanged(object sender, EventArgs e)
@@ -274,7 +295,6 @@ namespace GModPrePubHelper
                     checkedTags.Add(clbTags.GetItemText(clbTags.Items[i]));
                 }
             }
-
             addonTags = checkedTags.ToArray();
         }
 
@@ -288,6 +308,13 @@ namespace GModPrePubHelper
             if(rootDir == null || mapDir == null || thumbnailDir == null && usingThumbnail || gmadPath == null || mapName == null)
             {
                 lblGeneralInfo.Text = "One or more Directories are invalid!";
+
+                return;
+            }
+
+            if(!imageValid)
+            {
+                lblGeneralInfo.Text = "Please use a valid image!";
 
                 return;
             }
@@ -333,7 +360,7 @@ namespace GModPrePubHelper
 
             GMACreation(addonFolder, gmadPath, rootFolder, rootDir);
 
-            lblGeneralInfo.Text = "GMA File Created Successfully! At " + rootDir;
+            lblGeneralInfo.Text = "GMA File Created Successfully!";
         }
 
 

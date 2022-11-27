@@ -101,7 +101,7 @@
             this.panel4.Controls.Add(this.lblJson);
             this.panel4.Location = new System.Drawing.Point(6, 322);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(350, 125);
+            this.panel4.Size = new System.Drawing.Size(350, 133);
             this.panel4.TabIndex = 13;
             // 
             // grpbxTags
@@ -109,7 +109,7 @@
             this.grpbxTags.Controls.Add(this.clbTags);
             this.grpbxTags.Location = new System.Drawing.Point(9, 17);
             this.grpbxTags.Name = "grpbxTags";
-            this.grpbxTags.Size = new System.Drawing.Size(328, 85);
+            this.grpbxTags.Size = new System.Drawing.Size(338, 113);
             this.grpbxTags.TabIndex = 1;
             this.grpbxTags.TabStop = false;
             this.grpbxTags.Text = "Tags (Choose up to 2)";
@@ -122,6 +122,7 @@
             "Roleplay",
             "Scenic",
             "Movie",
+            "Realism",
             "Cartoon",
             "Water",
             "Comic",
@@ -129,7 +130,7 @@
             this.clbTags.Location = new System.Drawing.Point(6, 14);
             this.clbTags.MultiColumn = true;
             this.clbTags.Name = "clbTags";
-            this.clbTags.Size = new System.Drawing.Size(315, 64);
+            this.clbTags.Size = new System.Drawing.Size(322, 94);
             this.clbTags.TabIndex = 0;
             this.clbTags.SelectedIndexChanged += new System.EventHandler(this.clbTags_SelectedIndexChanged);
             // 
@@ -456,7 +457,7 @@
             this.Controls.Add(this.pnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GMPPH";
-            this.Text = "GMod Pre-Publishing Helper 0.2.3";
+            this.Text = "GMod Pre-Publishing Helper 0.2.4";
             this.pnlMain.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
