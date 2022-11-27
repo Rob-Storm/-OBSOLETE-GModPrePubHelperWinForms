@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace GModPrePubHelper
 {
@@ -23,7 +24,7 @@ namespace GModPrePubHelper
         */
 
 
-                            //Variables N Shit
+        //Variables N Shit
 
         //Directories
         public string folderPath, contentPath, thumbnailPath, mapPath, gmadPath;
@@ -50,14 +51,14 @@ namespace GModPrePubHelper
 
         void init()
         {
-            chkbxUsingCustomContent.Enabled= false;
+            chkbxUsingCustomContent.Enabled = false;
 
-            txtbxContentPath.Enabled= false;
-            txtbxThumbnailPath.Enabled= false;
+            txtbxContentPath.Enabled = false;
+            txtbxThumbnailPath.Enabled = false;
 
-            btnContentBrowse.Enabled= false;
-            btnThumbnailBrowse.Enabled= false;
-            
+            btnContentBrowse.Enabled = false;
+            btnThumbnailBrowse.Enabled = false;
+
         }
 
 
@@ -69,7 +70,7 @@ namespace GModPrePubHelper
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog= new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.ValidateNames = false;
             openFileDialog.CheckFileExists = false;
             openFileDialog.CheckPathExists = false;
@@ -88,20 +89,20 @@ namespace GModPrePubHelper
                 int pathLength;
 
                 folderPath = openFileDialog.FileName;
-                pathLength= folderPath.Length - 17;
+                pathLength = folderPath.Length - 17;
                 folderPath = folderPath.Remove(pathLength, 17);
 
                 txtbxFilePath.Text = folderPath;
             }
-        }        
-        
+        }
+
         private void btnDesktopPath_Click(object sender, EventArgs e)
         {
             string desktopFolder;
 
             desktopFolder = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            folderPath= desktopFolder;
+            folderPath = desktopFolder;
             txtbxFilePath.Text = folderPath;
 
         }
@@ -113,8 +114,8 @@ namespace GModPrePubHelper
         {
             usingCustomContent = chkbxUsingCustomContent.Checked;
 
-            if(usingCustomContent)
-            {   
+            if (usingCustomContent)
+            {
                 txtbxContentPath.Enabled = true;
                 btnContentBrowse.Enabled = true;
             }
@@ -127,8 +128,8 @@ namespace GModPrePubHelper
         }
         private void txtbxContentPath_TextChanged(object sender, EventArgs e)
         {
-            contentPath= txtbxContentPath.Text;
-        }        
+            contentPath = txtbxContentPath.Text;
+        }
         private void btnContentBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog2 = new OpenFileDialog();
@@ -161,9 +162,9 @@ namespace GModPrePubHelper
 
         private void chkbxUsingThumbnail_CheckedChanged(object sender, EventArgs e)
         {
-            usingThumbnail= chkbxUsingThumbnail.Checked;
+            usingThumbnail = chkbxUsingThumbnail.Checked;
 
-            if(usingThumbnail)
+            if (usingThumbnail)
             {
                 txtbxThumbnailPath.Enabled = true;
                 btnThumbnailBrowse.Enabled = true;
@@ -171,7 +172,7 @@ namespace GModPrePubHelper
 
             else
             {
-                txtbxThumbnailPath.Enabled= false;
+                txtbxThumbnailPath.Enabled = false;
                 btnThumbnailBrowse.Enabled = false;
             }
         }
@@ -182,11 +183,14 @@ namespace GModPrePubHelper
         {
             thumbnailPath = txtbxThumbnailPath.Text;
 
-            if(File.Exists(thumbnailPath))
+            if (File.Exists(thumbnailPath))
             {
                 IMGChecker(thumbnailPath);
             }
         }
+
+
+
         private void btnThumbnailBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog3 = new OpenFileDialog();
@@ -207,15 +211,15 @@ namespace GModPrePubHelper
         {
             var thumb = Image.FromFile(imagePath);
 
-            if(thumb.Width != 128 || thumb.Height != 128)
-            { 
-                imageValid= false;
+            if (thumb.Width != 128 || thumb.Height != 128)
+            {
+                imageValid = false;
                 lblImageWarning.Text = "Image resolution is not valid! Use 128x128!";
             }
 
-            else 
-            { 
-                imageValid= true;
+            else
+            {
+                imageValid = true;
                 lblImageWarning.Text = "Image is valid!";
             }
         }
@@ -223,7 +227,7 @@ namespace GModPrePubHelper
         //Map File
         private void txtbxMapPath_TextChanged(object sender, EventArgs e)
         {
-            mapPath= txtbxMapPath.Text;
+            mapPath = txtbxMapPath.Text;
         }
 
         private void btnMapFileBrowse_Click(object sender, EventArgs e)
@@ -263,39 +267,22 @@ namespace GModPrePubHelper
                 gmadPath = openFileDialog5.FileName;
                 txtbxGmadPath.Text = gmadPath;
             }
-        }        
+        }
         private void txtbxGmadPath_TextChanged(object sender, EventArgs e)
         {
-            gmadPath= txtbxGmadPath.Text;
+            gmadPath = txtbxGmadPath.Text;
         }
         private void btnDefaultGmadPath_Click(object sender, EventArgs e)
         {
             gmadPath = @"C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\gmad.exe";
 
-            txtbxGmadPath.Text= gmadPath;
+            txtbxGmadPath.Text = gmadPath;
         }
 
 
         //JSON Tags
         private void clbTags_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //WAY BETTER THAN WHAT I TRIED BEFOREHAND
-
-            //thank you tim for this solution, you basically saved this project lol! https://stackoverflow.com/users/745969/tim
-
-            //probably not necessary but idgaf
-            addonTags = clbTags.CheckedItems.ToString().Split(',');
-
-            List<string> checkedTags = new List<string>();
-
-            for(int i = 0; i < clbTags.Items.Count; i++)
-            {
-                if(clbTags.GetItemChecked(i) && clbTags.CheckedItems.Count <= 2)
-                {
-                    checkedTags.Add(clbTags.GetItemText(clbTags.Items[i]));
-                }
-            }
-            addonTags = checkedTags.ToArray();
         }
 
 
@@ -310,26 +297,26 @@ namespace GModPrePubHelper
         //
         //
         //Yay
-        
+
         public void FolderSetup(string rootDir, string mapDir, string thumbnailDir, string mapName, string gmadDir, bool usingThumbnail)
         {
             //I DONT CARE IF ITS MESSY THE ENDS JUSTIFY THE MEANS GODDAMNNIT
 
-            if(rootDir == null || mapDir == null || thumbnailDir == null && usingThumbnail || gmadPath == null || mapName == null)
+            if (rootDir == null || mapDir == null || thumbnailDir == null && usingThumbnail || gmadPath == null || mapName == null)
             {
                 lblGeneralInfo.Text = "One or more Directories are invalid!";
 
                 return;
             }
 
-            if(usingThumbnail && !imageValid)
+            if (usingThumbnail && !imageValid)
             {
                 lblGeneralInfo.Text = "Please use a valid image!";
 
                 return;
             }
 
-            if(clbTags.CheckedItems.Count > 2 )
+            if (clbTags.CheckedItems.Count > 2)
             {
                 lblGeneralInfo.Text = "Please choose 2 tags at most!";
 
@@ -338,7 +325,7 @@ namespace GModPrePubHelper
 
             //Variables
 
-            string rootFolder = rootDir+ "/" + mapName;
+            string rootFolder = rootDir + "/" + mapName;
 
             string mapsFolder = rootFolder + "/" + "maps";
 
@@ -359,12 +346,30 @@ namespace GModPrePubHelper
 
             System.IO.File.Move(mapFileTarget, customName + ".bsp");
 
-            if(usingThumbnail)
+            if (usingThumbnail)
             {
                 System.IO.Directory.CreateDirectory(thumbFolder);
-                System.IO.File.Copy(thumbnailDir, thumbFolder + "/" + Path.GetFileName(thumbnailDir));                
+                System.IO.File.Copy(thumbnailDir, thumbFolder + "/" + Path.GetFileName(thumbnailDir));
                 System.IO.File.Move(thumbFolder + "/" + Path.GetFileName(thumbnailDir), customThumb + ".png");
             }
+
+            //WAY BETTER THAN WHAT I TRIED BEFOREHAND
+            //thank you tim for this solution, you basically saved this project lol! https://stackoverflow.com/users/745969/tim
+
+
+            //get json tags and put convert them to array
+
+            List<string> checkedTags = new List<string>();
+
+            for (int i = 0; i < clbTags.Items.Count; i++)
+            {
+                if (clbTags.GetItemChecked(i) && clbTags.CheckedItems.Count <= 2)
+                {
+                    checkedTags.Add(clbTags.GetItemText(clbTags.Items[i]));
+                }
+            }
+
+            addonTags = checkedTags.ToArray();
 
             JSONCreation(rootFolder);
 
@@ -414,6 +419,7 @@ namespace GModPrePubHelper
         {
 
         }
+
     }
 
     //My first time using json and it somehow ended up working in the end?
