@@ -275,7 +275,7 @@
             // 
             // btnMapFileBrowse
             // 
-            this.btnMapFileBrowse.Location = new System.Drawing.Point(263, 12);
+            this.btnMapFileBrowse.Location = new System.Drawing.Point(263, 14);
             this.btnMapFileBrowse.Name = "btnMapFileBrowse";
             this.btnMapFileBrowse.Size = new System.Drawing.Size(75, 24);
             this.btnMapFileBrowse.TabIndex = 2;

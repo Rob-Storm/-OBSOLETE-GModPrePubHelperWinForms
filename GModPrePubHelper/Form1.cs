@@ -312,7 +312,7 @@ namespace GModPrePubHelper
                 return;
             }
 
-            if(!imageValid)
+            if(usingThumbnail && !imageValid)
             {
                 lblGeneralInfo.Text = "Please use a valid image!";
 
