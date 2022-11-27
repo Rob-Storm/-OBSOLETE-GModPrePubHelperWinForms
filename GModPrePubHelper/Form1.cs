@@ -36,10 +36,6 @@ namespace GModPrePubHelper
 
         //JSON Shit
 
-        public bool tagFun, tagRP, tagScenic, tagMovie, tagRealism, tagCartoon, tagWater, tagComic, tagBuild;
-
-        public bool[] boolTags = new bool[9];
-
         public string[] addonTags = new string[2];
 
 
