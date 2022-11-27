@@ -2,7 +2,7 @@
 
 A little tool I wrote to automate the creation of the gma file when uploading a garry's mod map, as of now it does NOT pack custom content so you still need to do that before using this. Sorry : \
 
-How to use:
+## How to use:
 
 1. Select a foler to store map - This is where the files/folders used in the gma creation will be stored
 
@@ -19,3 +19,7 @@ How to use:
 7. JSON file tags - Tags for the workshop page, still needed for .gma creation 
 
 8. Create Directories - Creates the folder structure and puts the appropriate files in their location as well as run gmad.exe when complete
+
+## For Additional Help
+
+Refer to: https://github.com/The1Wolfcast/GModPrePubHelper/wiki
