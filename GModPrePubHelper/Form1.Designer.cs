@@ -82,7 +82,7 @@
             this.pnlMain.Controls.Add(this.grpbxDir);
             this.pnlMain.Location = new System.Drawing.Point(5, 5);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(725, 475);
+            this.pnlMain.Size = new System.Drawing.Size(725, 469);
             this.pnlMain.TabIndex = 0;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
@@ -379,11 +379,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 486);
+            this.ClientSize = new System.Drawing.Size(734, 475);
             this.Controls.Add(this.pnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GMPPH";
-            this.Text = "GMod Pre-Publishing Helper 0.2.7";
+            this.Text = "GMod Pre-Publishing Helper 0.2.8";
             this.pnlMain.ResumeLayout(false);
             this.grpbxTags.ResumeLayout(false);
             this.grpbxDir.ResumeLayout(false);
