@@ -1,1 +1,1 @@
-# GModPrePubHelper
+# Garrys Mod Pre-Publishing Helper
