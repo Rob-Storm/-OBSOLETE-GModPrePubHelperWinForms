@@ -23,3 +23,5 @@ A little tool I wrote to automate the creation of the gma file when uploading a 
 ## For Additional Help
 
 Refer to: https://github.com/The1Wolfcast/GModPrePubHelper/wiki
+
+Video Demonstration: https://www.youtube.com/watch?v=19djw3gb_B0
