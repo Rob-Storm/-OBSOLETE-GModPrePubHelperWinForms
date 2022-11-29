@@ -172,9 +172,6 @@ namespace GModPrePubHelper
                 btnThumbnailBrowse.Enabled = false;
             }
         }
-
-
-
         private void txtbxThumbnailPath_TextChanged(object sender, EventArgs e)
         {
             thumbnailPath = txtbxThumbnailPath.Text;
@@ -184,9 +181,6 @@ namespace GModPrePubHelper
                 IMGChecker(thumbnailPath);
             }
         }
-
-
-
         private void btnThumbnailBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog3 = new OpenFileDialog();
@@ -225,7 +219,6 @@ namespace GModPrePubHelper
         {
             mapPath = txtbxMapPath.Text;
         }
-
         private void btnMapFileBrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog4 = new OpenFileDialog();
@@ -280,7 +273,6 @@ namespace GModPrePubHelper
         private void clbTags_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-
 
         //Create Directories
         private void btnCreateDirectories_Click(object sender, EventArgs e)
