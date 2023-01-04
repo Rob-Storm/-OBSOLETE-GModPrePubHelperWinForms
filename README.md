@@ -24,4 +24,6 @@ A little tool I wrote to automate the creation of the gma file when uploading a 
 
 Refer to: https://github.com/The1Wolfcast/GModPrePubHelper/wiki
 
+Facepunch: https://wiki.facepunch.com/gmod/Workshop_Addon_Creation
+
 Video Demonstration: https://www.youtube.com/watch?v=19djw3gb_B0
