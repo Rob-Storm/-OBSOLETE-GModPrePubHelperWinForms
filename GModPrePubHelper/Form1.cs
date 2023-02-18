@@ -261,6 +261,12 @@ namespace GModPrePubHelper
         {
             gmadPath = txtbxGmadPath.Text;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/The1Wolfcast/GModPrePubHelper#readme");
+        }
+
         private void btnDefaultGmadPath_Click(object sender, EventArgs e)
         {
             gmadPath = @"C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\bin\gmad.exe";
