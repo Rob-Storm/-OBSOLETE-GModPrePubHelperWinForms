@@ -4,7 +4,7 @@ A little tool I wrote to automate the creation of the gma file when uploading a 
 
 ## Installation
 
-1. Download from github
+1. Download from github (https://github.com/The1Wolfcast/GModPrePubHelper/releases)
 
 2. Extract using Winrar (or other similar program)
 
