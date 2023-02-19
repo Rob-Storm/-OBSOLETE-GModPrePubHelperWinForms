@@ -2,6 +2,14 @@
 
 A little tool I wrote to automate the creation of the gma file when uploading a garry's mod map, as of now it does NOT pack custom content so you still need to do that before using this. Sorry : \
 
+## Installation
+
+1. Download from github
+
+2. Extract using Winrar (or other similar program)
+
+3. Run GModPrePubHelper.exe
+
 ## How to use:
 
 1. Select a foler to store map - This is where the files/folders used in the gma creation will be stored
