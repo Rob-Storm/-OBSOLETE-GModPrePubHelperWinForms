@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using System.Runtime.InteropServices;
 
 namespace GModPrePubHelper
 {
@@ -310,7 +309,7 @@ namespace GModPrePubHelper
                 return;
             }
 
-            if (clbTags.CheckedItems.Count > 2)
+            if (clbTags.CheckedItems.Count > 2 || clbTags.CheckedItems.Count <= 0)
             {
                 lblGeneralInfo.Text = "Please choose 2 tags at most!";
 
@@ -357,7 +356,7 @@ namespace GModPrePubHelper
 
             for (int i = 0; i < clbTags.Items.Count; i++)
             {
-                if (clbTags.GetItemChecked(i) && clbTags.CheckedItems.Count <= 2)
+                if (clbTags.GetItemChecked(i) && clbTags.CheckedItems.Count <= 2 && clbTags.CheckedItems.Count >= 1)
                 {
                     checkedTags.Add(clbTags.GetItemText(clbTags.Items[i]));
                 }
@@ -405,7 +404,6 @@ namespace GModPrePubHelper
 
             process.WaitForExit();
         }
-
 
         //TIMEOUT CORNER
         //Dont delete or else you fuck up the design page somehow???!!1

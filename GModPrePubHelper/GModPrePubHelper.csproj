@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>coolg.ico</ApplicationIcon>
+    <ApplicationIcon>icontestG3.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -93,6 +93,9 @@
   <ItemGroup>
     <Content Include="coolg.ico" />
     <Content Include="g.ico" />
+    <Content Include="icong.ico" />
+    <Content Include="icontestG.ico" />
+    <Content Include="icontestG3.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

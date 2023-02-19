@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GMPPH));
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblGeneralInfo = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.grpbxTags = new System.Windows.Forms.GroupBox();
             this.clbTags = new System.Windows.Forms.CheckedListBox();
             this.grpbxGmad = new System.Windows.Forms.GroupBox();
@@ -56,11 +59,9 @@
             this.grpbxName = new System.Windows.Forms.GroupBox();
             this.txtbxName = new System.Windows.Forms.TextBox();
             this.grpbxDir = new System.Windows.Forms.GroupBox();
-            this.lblGeneralInfo = new System.Windows.Forms.Label();
             this.btnCreateDirectories = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnHelp = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.grpbxTags.SuspendLayout();
             this.grpbxGmad.SuspendLayout();
             this.grpbxThumbnail.SuspendLayout();
@@ -69,7 +70,6 @@
             this.grpbxCustomContent.SuspendLayout();
             this.grpbxName.SuspendLayout();
             this.grpbxDir.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -89,6 +89,36 @@
             this.pnlMain.Size = new System.Drawing.Size(725, 605);
             this.pnlMain.TabIndex = 0;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblGeneralInfo);
+            this.groupBox1.Controls.Add(this.btnHelp);
+            this.groupBox1.Location = new System.Drawing.Point(6, 461);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(350, 133);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Info and Help";
+            // 
+            // lblGeneralInfo
+            // 
+            this.lblGeneralInfo.AutoSize = true;
+            this.lblGeneralInfo.Location = new System.Drawing.Point(73, 52);
+            this.lblGeneralInfo.Name = "lblGeneralInfo";
+            this.lblGeneralInfo.Size = new System.Drawing.Size(183, 13);
+            this.lblGeneralInfo.TabIndex = 10;
+            this.lblGeneralInfo.Text = "Click \"Create Directories\" when done";
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(128, 103);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(67, 24);
+            this.btnHelp.TabIndex = 8;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.button1_Click);
             // 
             // grpbxTags
             // 
@@ -176,11 +206,11 @@
             // lblImageWarning
             // 
             this.lblImageWarning.AutoSize = true;
-            this.lblImageWarning.Location = new System.Drawing.Point(61, 66);
+            this.lblImageWarning.Location = new System.Drawing.Point(10, 66);
             this.lblImageWarning.Name = "lblImageWarning";
-            this.lblImageWarning.Size = new System.Drawing.Size(147, 13);
+            this.lblImageWarning.Size = new System.Drawing.Size(244, 13);
             this.lblImageWarning.TabIndex = 7;
-            this.lblImageWarning.Text = "Image must be 128x128 .png!";
+            this.lblImageWarning.Text = "Image resolution must be 128x128  and a .png file!";
             // 
             // chkbxUsingThumbnail
             // 
@@ -359,15 +389,6 @@
             this.grpbxDir.TabStop = false;
             this.grpbxDir.Text = "Create Directories and GMA";
             // 
-            // lblGeneralInfo
-            // 
-            this.lblGeneralInfo.AutoSize = true;
-            this.lblGeneralInfo.Location = new System.Drawing.Point(73, 52);
-            this.lblGeneralInfo.Name = "lblGeneralInfo";
-            this.lblGeneralInfo.Size = new System.Drawing.Size(183, 13);
-            this.lblGeneralInfo.TabIndex = 10;
-            this.lblGeneralInfo.Text = "Click \"Create Directories\" when done";
-            // 
             // btnCreateDirectories
             // 
             this.btnCreateDirectories.Location = new System.Drawing.Point(88, 48);
@@ -378,37 +399,18 @@
             this.btnCreateDirectories.UseVisualStyleBackColor = true;
             this.btnCreateDirectories.Click += new System.EventHandler(this.btnCreateDirectories_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblGeneralInfo);
-            this.groupBox1.Controls.Add(this.btnHelp);
-            this.groupBox1.Location = new System.Drawing.Point(6, 461);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(350, 133);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Info and Help";
-            // 
-            // btnHelp
-            // 
-            this.btnHelp.Location = new System.Drawing.Point(128, 103);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(67, 24);
-            this.btnHelp.TabIndex = 8;
-            this.btnHelp.Text = "Help";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.button1_Click);
-            // 
             // GMPPH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 652);
+            this.ClientSize = new System.Drawing.Size(734, 615);
             this.Controls.Add(this.pnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GMPPH";
-            this.Text = "GMod Pre-Publishing Helper 0.2.8";
+            this.Text = "GMod Pre-Publishing Helper 0.2.9";
             this.pnlMain.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.grpbxTags.ResumeLayout(false);
             this.grpbxGmad.ResumeLayout(false);
             this.grpbxGmad.PerformLayout();
@@ -423,8 +425,6 @@
             this.grpbxName.ResumeLayout(false);
             this.grpbxName.PerformLayout();
             this.grpbxDir.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
